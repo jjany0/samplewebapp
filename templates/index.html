@@ -1,0 +1,63 @@
+<!-- #W4_2/2 [8.02]  -->
+
+<DOCTYPE html>
+<html Lang="en">
+  <head>
+    <title>ToDo App</title> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+  </head>
+  <body>
+    <div>
+      <div class="container">
+        <h1>ToDo App</h1>
+        <form methods="post" id="todo-form">
+          <input type="text", id="todo-input" placeholder="Add New Task"></input>
+          <button type="submit">➕</button>
+        </form>
+        <ul>
+          {% for todo in todos %}
+          <li>
+            <span class="task-content">{{ todo }}</span>
+            <div class="action buttons">
+              <a>✅</a> 
+              <a>✏️</a> 
+              <a>❌</a>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </body>
+
+</html>
+
+
+<!-- #W4_1/2 [7.30]  -->
+
+<!-- <!DOCTYPE html>
+<html>
+    <body>
+    <h1>My First Heading of my first app</h1>
+    <p>My first paragraph.</p>
+    </body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<style>
+p {
+  color: red;
+  text-align: center;
+} 
+</style>
+</head>
+<body>
+
+<p>Hello World!</p>
+<p>These paragraphs are styled with CSS.</p>
+
+</body>
+</html> -->
