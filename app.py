@@ -21,6 +21,32 @@ def index():
         return redirect(url_for('index'))
     return render_template('index.html', todos=todos)
 
+@app.route('/toggle_status/<int:todo_id>') #kukuin niya individually yung row na cinlick mo
+def toggle_status(todo_id):
+    for todo in todos:
+        if todo['id'] == todo_id:
+            todo['done'] = not todo['done']
+            break
+    return redirect(url_for('index'))
+
+@app.route('/remove/<int:todo_id>')
+def remove_task(todo_id):
+    global todos # variable na list
+    todos = [todo for todo in todos if todo['id'] != todo_id] 
+    return redirect(url_for('index'))
+
+@app.route('/edit/<int:todo_id>', methods=['GET', 'POST']) # also creating but given the id and description
+def edit_task(todo_id):
+    todo = next((todo for todo in todos if todo ['id'] == todo_id), None)
+    if request.method == 'POST':
+        task_description = request.form['edited_todo']
+        if todo and task_description:
+            todo['task_description'] = task_description
+        return redirect(url_for('index'))
+    return render_template('edit_task.html', todo=todo)
+
+    
+
 if __name__ == '__main__': # Define port, host, and debugging while running
     app.run(host='0.0.0.0', port=8080, debug=True)
 
