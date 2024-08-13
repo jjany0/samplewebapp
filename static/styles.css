@@ -1,12 +1,12 @@
-body{
-    font-family: Arial, san-serif;
+body {
+    font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh
+    height: 100vh;
 }
 
 .container {
@@ -19,13 +19,13 @@ body{
 }
 
 h1 {
-    text-align:center;
+    text-align: center;
 }
 
 #todo-form {
     display: flex;
     align-items: center;
-    margin: 20px;
+    margin-bottom: 20px;
 }
 
 #todo-input{
@@ -33,18 +33,18 @@ h1 {
     padding: 10px;
     font-size: 16px;
     border: 2px solid #ddd;
-    border-radius: 4px;
+    border-radius:4px;
     margin-right: 5px;
 }
 
-button{
+button {
     cursor: pointer;
     height: 40px;
 }
 
 ul {
     list-style: none;
-    padding: 0
+    padding: 0;
 }
 
 li {
@@ -63,8 +63,8 @@ li {
     cursor: pointer;
 }
 
-.done .task-content{
-    text-decoration: line-through; 
+.done .task-content {
+    text-decoration: line-through;
     color: #bbb;
 }
 

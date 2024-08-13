@@ -1,64 +1,30 @@
-<!-- #W4_2/2 [8.02]  -->
-
-<DOCTYPE html>
-<html Lang="en">
-  <head>
-    <title>ToDo App</title> 
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
-  </head>
-  <body>
-    <div>
-      <div class="container">
-        <h1>ToDo App</h1>
-        <form methods="post" id="todo-form">
-          <input type="text", id="todo-input" name="new_todo" placeholder="Add New Task"></input>
-          <button type="submit">➕</button>
-        </form>
-        <ul>
-          {% for todo in todos %}
-          <li class="{{ 'done' if todo.done else '' }}"> 
-            <span class="task-content">{{ todo.task_description }}</span>
-                                <!-- from list to dictionary -->
-            <div class="action buttons">
-              <a href  = {{ url_for('toggle_status', todo_id=todo.id) }}>✅</a> 
-              <a href  = {{ url_for('edit_task', todo_id=todo.id) }}>✏️</a> 
-              <a href={{ url_for('remove_task', todo_id=todo.id) }}>❌</a>
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </body>
-
-</html>
-
-
-<!-- #W4_1/2 [7.30]  -->
-
-<!-- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ToDo App</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+    </head>
     <body>
-    <h1>My First Heading of my first app</h1>
-    <p>My first paragraph.</p>
+        <div class="container">
+            <h1>ToDo App</h1>
+            <form method="post" id="todo-form">
+                <input type="text", id="todo-input" name="new_todo" placeholder="Add New Task"></input>
+                <button type="submit">➕</button>
+            </form>
+            <ul>
+                {% for todo in todos %}
+
+                <li class="{{ 'done' if todo.done else '' }}"> 
+                    <span class="task-content">{{ todo.task_description }}</span>
+                    <div class="action-buttons">
+                        <a href={{ url_for('toggle_status', todo_id=todo.id) }}>✅</a>
+                        <a href={{ url_for('edit_task', todo_id=todo.id) }}>✏️</a>
+                        <a href={{ url_for('remove_task', todo_id=todo.id) }}>❌</a>
+                    </div>
+                </li>
+
+                {% endfor %}
+            </ul>
+        </div>
     </body>
-</html> -->
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-<style>
-p {
-  color: red;
-  text-align: center;
-} 
-</style>
-</head>
-<body>
-
-<p>Hello World!</p>
-<p>These paragraphs are styled with CSS.</p>
-
-</body>
-</html> -->
+</html>
